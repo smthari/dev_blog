@@ -189,7 +189,7 @@ if (isset($_POST['updateAdmin'])) {
 
 
     <?php
-    include("../Components/footer.php");
+    include("../Components/panelFooter.php");
     ?>
 
     <!-- jQuery -->

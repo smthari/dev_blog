@@ -11,8 +11,8 @@
 <body>
 
     <?php
-    include("./includes/header.php");
-    include("./includes/aside.php");
+    include("./components/header.php");
+    include("./components/aside.php");
     ?>
 
     <main class="pageContainer">
@@ -55,7 +55,7 @@
     </main>
 
     <?php
-    include("./includes/footer.php");
+    include("./components/footer.php");
     ?>
 
 </body>

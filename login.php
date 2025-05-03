@@ -7,7 +7,7 @@ if (isset($_SESSION['uid'])) {
     header("location:admin/admin.php");
 }
 
-include("./includes/db-connection.php");// included db-connection to use $con variable to run query 
+include("./includes/db-connection.php"); // included db-connection to use $con variable to run query 
 
 if (isset($_POST['login'])) {
     $usernameValue = $_POST['unameInput']; // assigning value of unameInput input to usernameValue variable
@@ -21,7 +21,7 @@ if (isset($_POST['login'])) {
 
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
     print_r($result);
-    if($stmt->rowCount() > 0){
+    if ($stmt->rowCount() > 0) {
         echo "Login Successfull";
         // header("location:admin/admin.php");
 
@@ -30,18 +30,16 @@ if (isset($_POST['login'])) {
         session_start();
         $_SESSION["uid"] = $result["id"];
         $_SESSION["first"] = $result['First']; // assigned id variable to first session variable 
-        $_SESSION["last"] = $result['Last'];// assigned id variable to last session variable 
-        $_SESSION["profilPic"] = $result['adminProfile'];// assigned id variable to last session variable 
-        
+        $_SESSION["last"] = $result['Last']; // assigned id variable to last session variable 
+        $_SESSION["profilPic"] = $result['adminProfile']; // assigned id variable to last session variable 
+
         header("location:admin/admin.php"); // redirected user to admin page
-    }
-    
-    else { 
-        ?>
-<script>
-alert("Login Failed");
-</script>
-<?php 
+    } else {
+?>
+        <script>
+            alert("Login Failed");
+        </script>
+<?php
         // header("location:login.php");
     }
     // header("location: admin/admin.php");
@@ -83,47 +81,44 @@ alert("Login Failed");
 </head>
 
 <body>
-    
+    <main class="form-signin w-50 m-auto content-header">
+        <div class="container text-center py-5 px-5">
+            <form action="" method="post" autocomplete="off">
+                <img class="mb-4 img-fluid"
+                    src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?t=st=1714572956~exp=1714576556~hmac=3cbcacdc5da138942e1363518e5779b06abd04bccaa1e7e24f21f90807f77d60&w=740"
+                    alt="login logo" width="222" height="57">
+                <h1 class="h3 mb-3 fw-normal text-capitalize">Please sign in - Dev Blog</h1>
 
-    
-            <main class="form-signin w-50 m-auto content-header">
-                <div class="container text-center py-5 px-5">
-                    <form action="" method="post" autocomplete="off">
-                        <img class="mb-4 img-fluid"
-                            src="https://img.freepik.com/free-vector/user-blue-gradient_78370-4692.jpg?t=st=1714572956~exp=1714576556~hmac=3cbcacdc5da138942e1363518e5779b06abd04bccaa1e7e24f21f90807f77d60&w=740"
-                            alt="login logo" width="222" height="57">
-                        <h1 class="h3 mb-3 fw-normal text-capitalize">Please sign in - Dev Blog</h1>
+                <div class="row justify-content-center align-items-center g-2">
 
-                        <div class="row justify-content-center align-items-center g-2">
+                    <div class="col form-floating">
+                        <label for="floatingUsername">Username</label>
+                        <input type="text" class="form-control autocomplete-off" id="floatingUsername"
+                            placeholder="admin" name="unameInput">
+                    </div>
+                    <div class="col form-floating my-3">
+                        <label for="floatingPassword">Password</label>
+                        <input type="password" class="form-control autocomplete-off" id="floatingPassword"
+                            placeholder="Password" name="pswdInput">
+                    </div>
 
-                            <div class="col form-floating">
-                                <label for="floatingUsername">Username</label>
-                                <input type="text" class="form-control autocomplete-off" id="floatingUsername"
-                                    placeholder="admin" name="unameInput">
-                            </div>
-                            <div class="col form-floating my-3">
-                                <label for="floatingPassword">Password</label>
-                                <input type="password" class="form-control autocomplete-off" id="floatingPassword"
-                                    placeholder="Password" name="pswdInput">
-                            </div>
-
-                        </div>
-
-                        <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
-                    </form>
                 </div>
-            </main>
-        
+
+                <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
+            </form>
+        </div>
+    </main>
 
 
-    
+
+
     <!-- jQuery -->
     <script src="assets/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
-    $.widget.bridge('uibutton', $.ui.button)
+        $.widget.bridge('uibutton', $.ui.button)
     </script>
     <!-- Bootstrap 4 -->
     <script src="assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

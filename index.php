@@ -16,11 +16,11 @@
 <body>
 
     <?php
-    include("./includes/header.php");
-    include("./includes/aside.php");
+    include("./components/header.php");
+    include("./components/aside.php");
     ?>
 
-    
+
     <main>
 
         <section class="home">
@@ -118,14 +118,9 @@
                                 </div>
                             </section>
                     <?php
-                            /*  echo "<h2><a href='post.php?id=" . $row['id'] . "'>" . $row['title'] . "</a></h2>";
-                    echo "<p>" . substr($row['body'], 0, 100) . "...</p>"; */
                         }
                     }
-
                     ?>
-
-
                     </article>
                 </div>
         </section>
@@ -136,7 +131,7 @@
 
 
     <?php
-    include("./includes/footer.php");
+    include("./components/footer.php");
     ?>
 
 </body>

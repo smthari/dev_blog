@@ -1,23 +1,23 @@
+<?php
+include('includes/db-connection.php');
+$id = $_GET['id'];
+$result = $dbcon->query("SELECT * FROM posts WHERE id=$id");
+$row = $result->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Post page</title>
+    <title><?php echo $row['title']; ?> - Dev Blog</title>
     <link rel="stylesheet" href="CSS/main.css">
 </head>
 
 <body>
     <?php
-    include('includes/db-connection.php');
-    $id = $_GET['id'];
-    $result = $dbcon->query("SELECT * FROM posts WHERE id=$id");
-    $row = $result->fetch(PDO::FETCH_ASSOC);
-    ?>
-
-    <?php
-    include("./includes/header.php");
+    include("./components/header.php");
     ?>
     <main>
         <section class="postTemplate">
@@ -29,7 +29,7 @@
     </main>
 
     <?php
-    include("./includes/footer.php");
+    include("./components/footer.php");
     ?>
 
 </body>
