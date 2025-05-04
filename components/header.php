@@ -2,7 +2,7 @@
     <div class="nav-center" style="grid-template-columns:1fr 1fr 1fr;height:10vh">
         <ul class="nav-icons">
             <li>
-                <a href="https://linkedin.com/in/sumit-harijan" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                         class="social-icon linkedin-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -12,7 +12,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://github.com/smthari" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                         class="social-icon github-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://twitter.com/sumit_harijan" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
                         class="social-icon twitter-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -32,7 +32,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.instagram.com/codingsumit/" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" viewBox="0 0 16 16"
                         class="social-icon instagram-icon" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                         <path
