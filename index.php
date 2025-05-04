@@ -31,7 +31,7 @@
                     <p>this blog is about web development</p>
                 </div>
                 <div class="cta">
-                    <a href="/tags.html">
+                    <a href="posts.php">
                         <button class="cta-action">Start Learning &amp; building </button>
                     </a>
                 </div>

@@ -11,7 +11,6 @@
         <ul class="sidebar-links">
             <li><a aria-current="page" class="page-link " href="/dev-blog/index.php">Home</a></li>
             <li><a class="page-link" href="/dev-blog/posts.php">Posts</a></li>
-            <li><a class="page-link" href="/dev-blog/tags.php">Tags</a></li>
         </ul>
     </div>
 </aside>

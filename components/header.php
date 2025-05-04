@@ -50,7 +50,6 @@
         <ul class="nav-links">
             <li><a aria-current="page" class="page-link" href="./index.php">Home</a></li>
             <li><a class="page-link" href="posts.php">Posts</a></li>
-            <li><a class="page-link" href="./tags.php">Tags</a></li>
         </ul>
         <button class="toggle-btn" id="sidebarToggle" ">
                 <svg stroke=" currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" height="1em"
