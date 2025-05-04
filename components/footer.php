@@ -3,13 +3,13 @@
         <div class="social-media-wrap">
             <div class="footer-logo">
                 <div class="logo">
-                    <a aria-current="page" class="nav-logo" href="/">
+                    <a aria-current="page" class="nav-logo" href="/dev-blog/index.php">
                         <img src="./assets/DEV_BLOG_LOGO_dark.png" style="width:15rem;text-align:center;vertical-align:middle" alt="logo" />
                     </a>
                 </div>
             </div>
-            <small class="website-rights">Codingsumit © 2025 Made
-                <!-- -->by Sumit & Mayur<!-- --></small>
+            <small class="website-rights">devblog.com © 2025 Made
+                <!-- -->by <b>Sumit & Mayur</b><!-- --></small>
             <ul class="nav-icons nav-footer">
                 <li>
                     <a href="#" target="_blank" rel="noopener noreferrer">

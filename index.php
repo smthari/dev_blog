@@ -37,35 +37,7 @@
                 </div>
             </div>
             <div class="tags">
-                <div class="tags-cta">
-                    <a href="/gatsby">
-                        <button class="cta-tag Gatsby">Gatsby</button>
-                    </a>
-                    <a href="/git-and-github">
-                        <button class="cta-tag Git &amp; Github">Git &amp; Github </button>
-                    </a>
-                    <a href="/html-and-css">
-                        <button class="cta-tag HTML &amp; CSS">HTML &amp; CSS </button>
-                    </a>
-                    <a href="/javascript">
-                        <button class="cta-tag Javascript">Javascript</button>
-                    </a>
-                    <a href="/projects">
-                        <button class="cta-tag Projects">Projects</button>
-                    </a>
-                    <a href="/react">
-                        <button class="cta-tag React">React</button>
-                    </a>
-                    <a href="/resources">
-                        <button class="cta-tag Resources">Resources</button>
-                    </a>
-                    <a href="/snippets">
-                        <button class="cta-tag Snippets">Snippets</button>
-                    </a>
-                    <a href="/tipstricks">
-                        <button class="cta-tag Tips/tricks">Tips/tricks</button>
-                    </a>
-                </div>
+                <img src="assets/DEV_BLOG_home.png" alt="hero" class="hero" />
             </div>
         </section>
 

@@ -288,10 +288,13 @@ Hero
 
 @media screen and (max-width: 960px) {
   .home {
-    flex-direction: column;
+    /* flex-direction: column;
     display: flex;
-    min-height: 95vh;
+    min-height: 95vh; */
     width: 95%;
+  }
+  .tags {
+    display: none !important; 
   }
   .tags {
     width: 90%;
@@ -976,6 +979,7 @@ Post Component
   margin: 0 auto;
   margin-bottom: 4rem;
   margin-top: 5rem;
+ 
 }
 
 .postTemplate ul {

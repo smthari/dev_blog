@@ -22,7 +22,7 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
     include("./components/aside.php");
     ?>
     <main>
-        <section class="postTemplate">
+        <section class="postTemplate page-container">
             <article>
 
                 <div class="post-info">
