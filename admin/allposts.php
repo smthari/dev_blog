@@ -109,7 +109,6 @@ if (isset($_SESSION['uid'])) {
                                         <th scope="col" style="width: 40% !important;">Description</th>
                                         <th scope="col" style="width: 15% !important">Created On</th>
                                         <th scope="col" style="width: 15% !important">Actions</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -123,7 +122,7 @@ if (isset($_SESSION['uid'])) {
                                             </td>
                                             <td class="<?php echo $classTodostatus ?>"
                                                 style="vertical-align:middle !important;">
-                                                <?php echo substr($todoItem['body'], 0, 100) . '...'  ?>
+                                                <?php echo substr($todoItem['description'], 0, 100) . '...'  ?>
                                             </td>
                                             <td style="vertical-align:middle !important;">
                                                 <?php echo $todoItem['created_at'] ?>

@@ -106,7 +106,7 @@
                                         <h3><?php echo $row['title'] ?></h3>
                                     </a>
                                     <div class="underline"></div>
-                                    <p><?php echo substr($row['body'], 0, 100) . '...'  ?></p>
+                                    <p><?php echo substr($row['description'], 0, 100) . '...'  ?></p>
                                     <footer class="footer"><span class="date"><svg stroke="currentColor" fill="currentColor"
                                                 stroke-width="0" viewBox="0 0 512 512" class="icon" height="1em" width="1em"
                                                 xmlns="http://www.w3.org/2000/svg">

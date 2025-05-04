@@ -13,14 +13,26 @@ if (isset($_SESSION['uid'])) {
 if (isset($_POST['submitbtn'])) {
     include('../includes/db-connection.php');
 
+    // Get your POST variables
     $postTitleValue = $_POST['postTitle'];
+    $postdescription = $_POST['postdescription'];
     $postBodyValue = $_POST['postBody'];
     $postTagsValue = $_POST['postTags'];
     $postReadTimeValue = $_POST['postReadTime'];
 
-    $qry = "INSERT INTO `posts`(`title`, `body`,`tags`,`readTime`) VALUES ('$postTitleValue','$postBodyValue', '$postTagsValue','$postReadTimeValue')";
+    // Prepare the SQL statement with placeholders
+    $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`) 
+        VALUES (:title, :description, :body, :tags, :readTime)";
 
-    $stmt = $dbcon->query($qry);
+    // Prepare and execute with parameters
+    $stmt = $dbcon->prepare($qry);
+    $stmt->execute([
+        ':title' => $postTitleValue,
+        ':description' => $postdescription,
+        ':body' => $postBodyValue,
+        ':tags' => $postTagsValue,
+        ':readTime' => $postReadTimeValue
+    ]);
 
     if ($stmt == true) {
         include("../Components/toast.php");
@@ -41,10 +53,12 @@ if (isset($_POST['submitbtn'])) {
 <html lang="en">
 
 <head>
-    <title>Add todo</title>
+    <title>Add Post</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -97,39 +111,45 @@ if (isset($_POST['submitbtn'])) {
                 </div><!-- /.container-fluid -->
             </div>
 
-
             <main>
                 <div class="container h-100 py-5">
                     <div class="row container m-auto py-5">
                         <div class=" col-md-12 col-lg-12 ">
-                            <h4 class=" mb-3">Add Post</h4>
+                            <h4 class=" mb-5">Add Post</h4>
                             <form class="needs-validation" action="addpost.php" method="post"
                                 enctype="multipart/form-data">
                                 <div class="row g-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label class="form-label">Title:</label>
                                         <input class="form-control" type="text" name="postTitle"
                                             placeholder="Post Title" required>
                                     </div>
                                 </div>
                                 <div class="row g-3 pt-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
+                                        <label class="form-label">Description:</label>
+                                        <input class="form-control" type="text" name="postdescription"
+                                            placeholder="Post Description" required>
+                                    </div>
+                                </div>
+                                <div class="row g-3 pt-3">
+                                    <div class="col-md-12">
                                         <label class="form-label">Tags:</label>
                                         <input class="form-control" type="text" name="postTags"
                                             placeholder="Post Tags" required>
                                     </div>
                                 </div>
                                 <div class="row g-3 pt-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label class="form-label">Read Time:</label>
                                         <input class="form-control" type="text" name="postReadTime"
                                             placeholder="Post Read Time" required>
                                     </div>
                                 </div>
                                 <div class="row g-3 pt-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label class="form-label">Body:</label>
-                                        <textarea class="form-control" rows="4" cols="50" name="postBody" placeholder="Post Content" required></textarea>
+                                        <textarea class="form-control" rows="4" cols="50"" name=" postBody" placeholder="Post Content" required></textarea>
                                     </div>
                                 </div>
 
@@ -151,6 +171,8 @@ if (isset($_POST['submitbtn'])) {
     <?php
     include("../Components/panelFooter.php");
     ?>
+
+
     <!-- jQuery -->
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -185,6 +207,7 @@ if (isset($_POST['submitbtn'])) {
     <script src="../assets/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="../assets/dist/js/pages/dashboard.js"></script>
+
 </body>
 
 </html>

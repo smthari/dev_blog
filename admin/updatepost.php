@@ -17,13 +17,29 @@ if (isset($_POST['updatebtn'])) {
     $postId = $_GET['id'];
 
     $postTitleValue = $_POST['postTitle'];
+    $postdescription = $_POST['postdescription'];
     $postBodyValue = $_POST['postBody'];
     $postTagsValue = $_POST['postTags'];
     $postReadTimeValue = $_POST['postReadTime'];
 
-    $update  = "UPDATE `posts` SET `title`='$postTitleValue', `body`='$postBodyValue',`tags`='$postTagsValue',`readTime`='$postReadTimeValue' WHERE id='$postId'";
+    $update  = "UPDATE `posts` SET `title` = :title,
+            `description` = :description,
+            `body` = :body,
+            `tags` = :tags,
+            `readTime` = :readTime
+        WHERE `id` = :id";
 
-    $stmt = $dbcon->query($update);
+    // Prepare and execute with parameters
+    $stmt = $dbcon->prepare($update);
+    $stmt->execute([
+        ':id' => $postId,
+        ':title' => $postTitleValue,
+        ':description' => $postdescription,
+        ':body' => $postBodyValue,
+        ':tags' => $postTagsValue,
+        ':readTime' => $postReadTimeValue
+    ]);
+
 
     if ($stmt == true) {
         include("../Components/toast.php");
@@ -47,10 +63,12 @@ if (isset($_POST['updatebtn'])) {
 <html lang="en">
 
 <head>
-    <title>Add todo</title>
+    <title>Update post</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Place the first <script> tag in your HTML's <head> -->
+    <script src="https://cdn.tiny.cloud/1/0qvvh2q9x1b754s1id6x3luvq7sv2iifafm3m8wfdg4h3n23/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -110,7 +128,7 @@ if (isset($_POST['updatebtn'])) {
                         <?php
                         include('../includes/db-connection.php');
 
-                        // getting value of id using get method from url assgiend to action href in all todolist and assigned to postId php variable 
+                        // getting value of id using get method from url assgiend to action href in all posts and assigned to postId php variable 
 
                         $postId = $_GET['id'];
                         $qry = "SELECT * FROM `posts` WHERE id='$postId'";
@@ -130,34 +148,40 @@ if (isset($_POST['updatebtn'])) {
 
                         ?>
                             <div class=" col-md-12 col-lg-12 ">
-                                <h4 class=" mb-3">Update Post</h4>
+                                <h4 class=" mb-5">Update Post</h4>
                                 <form class="needs-validation" action="" method="post"
                                     enctype="multipart/form-data">
                                     <div class="row g-3">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="form-label">Title:</label>
                                             <input class="form-control" type="text" name="postTitle"
                                                 value="<?php echo $post['title']; ?>" placeholder="Post Title" required>
                                         </div>
                                     </div>
                                     <div class="row g-3 pt-3">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
+                                            <label class="form-label">Description:</label>
+                                            <input class="form-control" type="text" name="postdescription"
+                                                value="<?php echo $post['description']; ?>" placeholder="Post Description" required>
+                                        </div>
+                                    </div>
+                                    <div class="row g-3 pt-3">
+                                        <div class="col-md-12">
                                             <label class="form-label">Tags:</label>
                                             <input class="form-control" type="text" name="postTags"
                                                 value="<?php echo $post['tags']; ?>" placeholder="Post Tags" required>
                                         </div>
                                     </div>
                                     <div class="row g-3 pt-3">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="form-label">Read Time:</label>
                                             <input class="form-control" type="text" name="postReadTime"
                                                 value="<?php echo $post['readTime']; ?>" placeholder="Post Read Time" required>
                                         </div>
                                     </div>
                                     <div class="row g-3 pt-3">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
                                             <label class="form-label">Body:</label>
-
                                             <textarea class="form-control" rows="4" cols="50"" name=" postBody" placeholder="Post Content" required><?php echo $post['body']; ?></textarea>
                                         </div>
                                     </div>
@@ -187,6 +211,37 @@ if (isset($_POST['updatebtn'])) {
     <?php
     include("../Components/panelFooter.php");
     ?>
+
+
+
+    <!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                // Core editing features
+                'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+                // Your account includes a free trial of TinyMCE premium features
+                // Try the most popular premium features until May 18, 2025:
+                'checklist', 'mediaembed', 'casechange', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown', 'importword', 'exportword', 'exportpdf'
+            ],
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [{
+                    value: 'First.Name',
+                    title: 'First Name'
+                },
+                {
+                    value: 'Email',
+                    title: 'Email'
+                },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+        });
+    </script>
+
+
     <!-- jQuery -->
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
