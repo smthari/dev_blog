@@ -13,17 +13,34 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $row['title']; ?> - Dev Blog</title>
     <link rel="stylesheet" href="CSS/main.css">
+
 </head>
 
 <body>
     <?php
     include("./components/header.php");
+    include("./components/aside.php");
     ?>
     <main>
         <section class="postTemplate">
             <article>
-                <h1><?php echo $row['title']; ?></h1>
-                <p><?php echo $row['body']; ?></p>
+
+                <div class="post-info">
+                    <h2><?php echo $row['title']; ?></h2>
+                    <?php
+                    $tags = explode(',', $row['tags']);
+                    foreach ($tags as $tag):
+                        $tag = trim($tag);
+                        if (!empty($tag)):
+                    ?>
+                            <span class="category postcategory "><?= htmlspecialchars($tag) ?></span>
+                    <?php endif;
+                    endforeach; ?>
+                    <p><?php echo $row['created_at']; ?></p>
+                    <div class="underline"></div>
+                </div>
+
+                <div><?php echo $row['body']; ?></div>
             </article>
         </section>
     </main>
@@ -33,5 +50,8 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
     ?>
 
 </body>
+
+<script src="JS/main.js"></script>
+
 
 </html>
