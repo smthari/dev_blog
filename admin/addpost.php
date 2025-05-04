@@ -58,8 +58,6 @@ if (isset($_POST['submitbtn'])) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-
-
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -149,7 +147,7 @@ if (isset($_POST['submitbtn'])) {
                                 <div class="row g-3 pt-3">
                                     <div class="col-md-12">
                                         <label class="form-label">Body:</label>
-                                        <textarea class="form-control" rows="4" cols="50"" name=" postBody" placeholder="Post Content" required></textarea>
+                                        <textarea class="form-control" rows="4" cols="50"" name=" postBody" placeholder="Post Content" id="mytextarea" required></textarea>
                                     </div>
                                 </div>
 
@@ -166,7 +164,6 @@ if (isset($_POST['submitbtn'])) {
             </main>
         </div>
     </div>
-
 
     <?php
     include("../Components/panelFooter.php");
