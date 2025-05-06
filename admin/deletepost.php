@@ -25,7 +25,7 @@ if (isset($_SESSION['uid'])) {
         include("../Components/toast.php");
         ?>
 <script>
-customToast("Todo Deleted");
+customToast("Post Deleted");
 </script>
 <?php
 // header("location:/Admin-panel/Panel/todo/alltodos.php");

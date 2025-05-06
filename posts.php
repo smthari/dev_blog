@@ -18,10 +18,7 @@
     <main>
         <section class="pageContainer">
             <section class="posts">
-                <div class="titleDiv">
-                    <h4>33 posts</h4>
-                    <div class="line"></div>
-                </div>
+
                 <?php
                 include("./includes/db-connection.php");
                 $qry = "SELECT * FROM `posts` ORDER BY created_at DESC";
@@ -31,7 +28,10 @@
                     echo "<h1>No posts available</h1>";
                 } else {
                 ?>
-
+                    <div class="titleDiv">
+                        <h4><?php echo $result->rowCount() ?> Posts </h4>
+                        <div class="line"></div>
+                    </div>
                     <div class="post-center">
                         <article class="postContainer">
                             <?php
