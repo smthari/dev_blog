@@ -1,3 +1,5 @@
+
+
 <aside class="sidebar ">
     <button class="close-btn">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em"
@@ -11,6 +13,28 @@
         <ul class="sidebar-links">
             <li><a aria-current="page" class="page-link " href="/dev-blog/index.php">Home</a></li>
             <li><a class="page-link" href="/dev-blog/posts.php">Posts</a></li>
+            <?php if (isset($_SESSION['uid'])): ?>
+                <div class="dropdown">
+                    <button class="dropdown-toggle">Hello, <?php echo $_SESSION['first']; ?>!</button>
+                    <div class="dropdown-menu">
+                        <a href="admin/admin.php" class="dropdown-item">Dashboard</a>
+                        <a href="admin/account.php" class="dropdown-item">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="logout.php" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+            <?php else: ?>
+
+                <div class="dropdown">
+                    <button class="dropdown-toggle">Login</button>
+                    <div class="dropdown-menu">
+                        <a href="admin/admin.php" class="dropdown-item">Developer</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="login.php" class="dropdown-item">Admin</a>
+                    </div>
+                </div>
+
+            <?php endif; ?>
         </ul>
     </div>
 </aside>
