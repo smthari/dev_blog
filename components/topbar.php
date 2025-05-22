@@ -77,13 +77,41 @@
                             $stmt = $dbcon->query($qry);
                             $result = $stmt->fetch(PDO::FETCH_OBJ)
                             ?>
+
                             <!-- real time profile picture update  -->
-                            <img src="../images/<?php echo $result->adminProfile ? $result->adminProfile : "artist.png" ?>" style="height: auto; width: 2vw;"
-                                class="rounded-circle ">
+
+                            <?php if ($_SESSION['role'] === 'admin') {
+                            ?>
+                                <img src="../images/<?php echo $result->adminProfile ? $result->adminProfile : "artist.png" ?>" style="height: auto; width: 2vw;"
+                                    class="rounded-circle ">
+                            <?php
+                            } else {
+                            ?>
+                                <img src="../images/<?php echo $_SESSION["userProfile"] ?>" style="height: auto; width: 2vw;"
+                                    class="rounded-circle ">
+                            <?php
+                            } ?>
+
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/dev-blog/admin/admin.php">Dashboard</a>
-                            <a class="dropdown-item" href="/dev-blog/admin/account.php">Edit Profile</a>
+                            <?php if ($_SESSION['role'] === 'admin') {
+                            ?>
+                                <a class="dropdown-item" href="/dev-blog/admin/admin.php">Dashboard</a>
+                            <?php
+                            } else {
+                            ?>
+                                <a class="dropdown-item" href="/dev-blog/user/user.php">Dashboard</a>
+                            <?php
+                            } ?>
+                            <?php if ($_SESSION['role'] === 'admin') {
+                            ?>
+                                <a class="dropdown-item" href="/dev-blog/admin/account.php">Edit Profile</a>
+                            <?php
+                            } else {
+                            ?>
+                                <a class="dropdown-item" href="/dev-blog/user/account.php">Edit Profile</a>
+                            <?php
+                            } ?>
                             <a class="dropdown-item" href="/dev-blog/logout.php">Log Out</a>
                         </div>
                     </li>

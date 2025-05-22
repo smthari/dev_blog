@@ -1,10 +1,10 @@
 <?php
 
 // session started to prevent re-login after navigating throughout the website 
-// session started at the head of login form to check if there already a user signed then redirect to admin page
+// session started at the head of login form to check if there already a user signed then redirect to user page
 session_start();
 if (isset($_SESSION['uid'])) {
-    header("location:admin/admin.php");
+    header("location:user/user.php");
 }
 
 include("./includes/db-connection.php"); // included db-connection to use $con variable to run query 
@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
     $passwordValue = $_POST['pswdInput']; // assigning value of pswdInput input to passwordValue variable 
 
     // making a query 
-    $qry = "SELECT * FROM `admin` WHERE username='$usernameValue' AND password='$passwordValue'";
+    $qry = "SELECT * FROM `user` WHERE username='$usernameValue' AND password='$passwordValue'";
 
     $stmt = $dbcon->prepare($qry);
     $stmt->execute();
@@ -23,18 +23,19 @@ if (isset($_POST['login'])) {
     print_r($result);
     if ($stmt->rowCount() > 0) {
         echo "Login Successfull";
-        // header("location:admin/admin.php");
+        // header("location:user/user.php");
 
         print_r($result["id"]);
 
         session_start();
         $_SESSION["uid"] = $result["id"];
         $_SESSION["first"] = $result['First']; // assigned id variable to first session variable 
+        $name = urlencode($_SESSION['first']);
         $_SESSION["last"] = $result['Last']; // assigned id variable to last session variable 
-        $_SESSION["adminProfile"] = $result['adminProfile']; // assigned id variable to last session variable 
+        $_SESSION["userProfile"] = $result['userProfile']; // assigned id variable to last session variable 
         $_SESSION['role'] = $result['role'];
 
-        header("location:admin/admin.php"); // redirected user to admin page
+        header("location:user/user.php?name=$name"); // redirected user to user page
     } else {
 ?>
         <script>
@@ -43,8 +44,8 @@ if (isset($_POST['login'])) {
 <?php
         // header("location:login.php");
     }
-    // header("location: admin/admin.php");
-    // header("location:admin/admin.php");
+    // header("location: user/user.php");
+    // header("location:user/user.php");
 }
 
 ?>

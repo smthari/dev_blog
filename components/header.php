@@ -57,21 +57,38 @@ session_start();
             <li><a class="page-link" href="posts.php">Posts</a></li>
 
             <?php if (isset($_SESSION['uid'])): ?>
-                <div class="dropdown">
-                    <button class="dropdown-toggle">Hello, <?php echo $_SESSION['first']; ?>!</button>
-                    <div class="dropdown-menu">
-                        <a href="admin/admin.php" class="dropdown-item">Dashboard</a>
-                        <a href="admin/account.php" class="dropdown-item">Profile</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="logout.php" class="dropdown-item">Logout</a>
+                <?php if ($_SESSION['role'] === 'admin') {
+                ?>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle">Hello, <?php echo $_SESSION['first']; ?>!</button>
+                        <div class="dropdown-menu">
+                            <a href="admin/admin.php" class="dropdown-item">Dashboard</a>
+                            <a href="admin/account.php" class="dropdown-item">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="logout.php" class="dropdown-item">Logout</a>
+                        </div>
                     </div>
-                </div>
+                <?php
+                } else {
+                ?>
+                    <div class="dropdown">
+                        <button class="dropdown-toggle">Hello, <?php echo $_SESSION['first']; ?>!</button>
+                        <div class="dropdown-menu">
+                            <a href="user/user.php" class="dropdown-item">Dashboard</a>
+                            <a href="user/account.php" class="dropdown-item">Profile</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="logout.php" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                <?php
+                } ?>
+                
             <?php else: ?>
 
                 <div class="dropdown">
                     <button class="dropdown-toggle">Login</button>
                     <div class="dropdown-menu">
-                        <a href="admin/admin.php" class="dropdown-item">Developer</a>
+                        <a href="dev-login.php" class="dropdown-item">Developer</a>
                         <div class="dropdown-divider"></div>
                         <a href="login.php" class="dropdown-item">Admin</a>
                     </div>
