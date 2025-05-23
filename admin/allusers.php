@@ -148,7 +148,7 @@ if (isset($_SESSION['uid'])) {
         </div>
     </div>
     <?php
-    include("../components/footer.php");
+    include("../components/panelFooter.php");
     ?>
     <!-- jQuery -->
     <script src="../assets/plugins/jquery/jquery.min.js"></script>
