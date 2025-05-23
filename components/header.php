@@ -4,7 +4,7 @@ session_start();
 
 
 <nav class="navbar">
-    <div class="nav-center" style="display:flex; justify-content:space-between; height:10vh">
+    <div class="nav-center">
 
         <div class="logo" style="text-align:center; margin: 0 5rem">
             <a aria-current="page" class="nav-logo" style="display:block" href="./index.php">

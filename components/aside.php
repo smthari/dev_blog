@@ -1,5 +1,3 @@
-
-
 <aside class="sidebar ">
     <button class="close-btn">
         <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" height="1em"
@@ -11,8 +9,15 @@
     </button>
     <div class="sidebar-container">
         <ul class="sidebar-links">
-            <li><a aria-current="page" class="page-link " href="/dev-blog/index.php">Home</a></li>
-            <li><a class="page-link" href="/dev-blog/posts.php">Posts</a></li>
+            <!-- <li><a aria-current="page" class="page-link " href="/dev-blog/index.php">Home</a></li>
+            <li><a class="page-link" href="/dev-blog/posts.php">Posts</a></li> -->
+
+            <?php if (isset($_SESSION['uid'])): ?>
+                <li><a class="page-link border" href="user/addpost.php">Create Post</a></li>
+            <?php else: ?>
+                <li><a class="page-link border" href="register.php">Create Account</a></li>
+            <?php endif; ?>
+            
             <?php if (isset($_SESSION['uid'])): ?>
                 <div class="dropdown">
                     <button class="dropdown-toggle">Hello, <?php echo $_SESSION['first']; ?>!</button>

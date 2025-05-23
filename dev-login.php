@@ -4,7 +4,7 @@
 // session started at the head of login form to check if there already a user signed then redirect to user page
 session_start();
 if (isset($_SESSION['uid'])) {
-    header("location:user/user.php");
+    header("location:index.php");
 }
 
 include("./includes/db-connection.php"); // included db-connection to use $con variable to run query 
@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
         $_SESSION["userProfile"] = $result['userProfile']; // assigned id variable to last session variable 
         $_SESSION['role'] = $result['role'];
 
-        header("location:user/user.php?name=$name"); // redirected user to user page
+        header("location:index.php"); // redirected user to user page
     } else {
 ?>
         <script>
