@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION['uid'])) {
+    header("location:posts.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,13 +29,12 @@
 
 
     <main>
-
         <section class="home">
             <div class="intro">
                 <div class="intro-text">
-                    <h1>Explore</h1>
-                    <h3>Learn and build </h3>
-                    <p>this blog is about web development</p>
+                    <h1>Dev Blog </h1>
+                    <h3>for developer </h3>
+                    <p>Share, learn, and enhanced their skill.</p>
                 </div>
                 <div class="cta">
                     <a href="posts.php">
@@ -41,7 +47,7 @@
             </div>
         </section>
 
-        <section class="posts">
+        <!-- <section class="posts">
             <div class="titleDiv">
                 <h4>latest posts</h4>
                 <div class="line"></div>
@@ -95,10 +101,10 @@
                     ?>
                     </article>
                 </div>
-        </section>
+        </section> -->
 
-        <div style="text-align:center;padding:3rem"><a href="posts.php"><button class="cta-action">All posts
-                </button></a></div>
+        <!-- <div style="text-align:center;padding:3rem"><a href="posts.php"><button class="cta-action">All posts
+                </button></a></div> -->
     </main>
 
 

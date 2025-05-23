@@ -1,5 +1,9 @@
 <?php
-session_start();
+
+// session_status() to check before starting
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 
 
