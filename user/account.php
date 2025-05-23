@@ -102,7 +102,7 @@ if (isset($_POST['updateUser'])) {
                 <div class="container-fluid px-5">
                     <div class="row mt-3">
                         <div class="col-sm-6">
-                            <h5>user Profile</h5>
+                            <h5><?php echo $_SESSION["first"] ?> Profile</h5>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
