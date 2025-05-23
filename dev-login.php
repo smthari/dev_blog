@@ -107,6 +107,8 @@ if (isset($_POST['login'])) {
                 </div>
 
                 <button class="w-100 btn btn-lg btn-primary" name="login" type="submit">Sign in</button>
+
+                <P class="mt-3">Don't have a account? <a href="register.php">Register Here</a></P>
             </form>
         </div>
     </main>
