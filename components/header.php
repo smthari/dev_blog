@@ -4,8 +4,15 @@ session_start();
 
 
 <nav class="navbar">
-    <div class="nav-center" style="grid-template-columns:1fr 1fr 1fr;height:10vh">
-        <ul class="nav-icons">
+    <div class="nav-center" style="display:flex; justify-content:space-between; height:10vh">
+
+        <div class="logo" style="text-align:center; margin: 0 5rem">
+            <a aria-current="page" class="nav-logo" style="display:block" href="./index.php">
+                <img src="assets/DEV_BLOG_LOGO.png" style="width:15rem;text-align:center;vertical-align:middle" alt="logo" />
+            </a>
+        </div>
+
+        <!--  <ul class="nav-icons">
             <li>
                 <a href="#" target="_blank" rel="noopener noreferrer">
                     <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
@@ -46,15 +53,16 @@ session_start();
                     </svg>
                 </a>
             </li>
-        </ul>
-        <div class="logo" style="text-align:center">
-            <a aria-current="page" class="nav-logo" style="display:block" href="./index.php">
-                <img src="assets/DEV_BLOG_LOGO.png" style="width:15rem;text-align:center;vertical-align:middle" alt="logo" />
-            </a>
-        </div>
+        </ul> -->
         <ul class="nav-links">
-            <li><a aria-current="page" class="page-link" href="./index.php">Home</a></li>
-            <li><a class="page-link" href="posts.php">Posts</a></li>
+            <!-- <li><a aria-current="page" class="page-link" href="./index.php">Home</a></li> -->
+            <!-- <li><a class="page-link" href="posts.php">Posts</a></li> -->
+
+            <?php if (isset($_SESSION['uid'])): ?>
+                <li><a class="page-link border" href="user/addpost.php">Create Post</a></li>
+            <?php else: ?>
+                <li><a class="page-link border" href="register.php">Create Account</a></li>
+            <?php endif; ?>
 
             <?php if (isset($_SESSION['uid'])): ?>
                 <?php if ($_SESSION['role'] === 'admin') {
@@ -82,7 +90,7 @@ session_start();
                     </div>
                 <?php
                 } ?>
-                
+
             <?php else: ?>
 
                 <div class="dropdown">

@@ -87,7 +87,7 @@
                             <?php
                             } else {
                             ?>
-                                <img src="../images/<?php echo $_SESSION["userProfile"] ?>" style="height: auto; width: 2vw;"
+                                <img src="../images/<?php echo $_SESSION["userProfile"] ? $_SESSION["userProfile"] : "artist.png" ?>" style="height: auto; width: 2vw;"
                                     class="rounded-circle ">
                             <?php
                             } ?>

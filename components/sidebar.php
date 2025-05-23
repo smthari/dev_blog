@@ -30,7 +30,7 @@
         <?php
         } else {
         ?>
-          <img src="../images/<?php echo $_SESSION["userProfile"] ?>" class="img-circle elevation-2"
+          <img src="../images/<?php echo $_SESSION["userProfile"] ?  $_SESSION["userProfile"] : "artist.png" ?>" class="img-circle elevation-2"
             alt="User Image">
         <?php
         } ?>

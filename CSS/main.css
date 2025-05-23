@@ -431,6 +431,10 @@ Hero
   border-radius: 0.25rem;
 }
 
+.border {
+  border: 3px solid var(--clr-primary);
+}
+
 .page-link:hover {
   color: var(--clr-primary);
 }
