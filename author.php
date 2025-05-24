@@ -22,7 +22,7 @@ $author = $_GET['author'];
     include("./components/aside.php");
     ?>
 
-    <main>
+    <main style="height: -webkit-fill-available;">
         <section class="pageContainer">
             <section class="posts">
 

@@ -12,7 +12,6 @@ if (isset($_SESSION['uid'])) {
 
 if (isset($_POST['submitbtn'])) {
     include('../includes/db-connection.php');
-    
     // Get the user ID from the session
     // Assuming you have stored the user ID in the session when the user logged in
     $uid = $_SESSION['uid'];
@@ -29,6 +28,19 @@ if (isset($_POST['submitbtn'])) {
     $userId = $_SESSION['uid'];
     $authorName = $user['username'];
 
+    // Process the tags input
+    // 1. Split into array
+    $tagArray = explode(',', $postTagsValue);
+
+    // 2. Trim each tag to remove spaces, and remove empty values
+    $cleanTags = array_filter(array_map('trim', $tagArray));
+
+    // 3. Optional: Convert all to lowercase for consistency
+    $cleanTags = array_map('strtolower', $cleanTags);
+
+    // 4. Join back into comma-separated string
+    $finalTagsValue = implode(',', $cleanTags);
+
     // Prepare the SQL statement with placeholders
     $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`, `user_id`, `author`) 
         VALUES (:title, :description, :body, :tags, :readTime, :user_id, :author)";
@@ -39,7 +51,7 @@ if (isset($_POST['submitbtn'])) {
         ':title' => $postTitleValue,
         ':description' => $postdescription,
         ':body' => $postBodyValue,
-        ':tags' => $postTagsValue,
+        ':tags' => $finalTagsValue,
         ':readTime' => $postReadTimeValue,
         ':user_id' => $userId,
         ':author' => $authorName

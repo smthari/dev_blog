@@ -48,7 +48,11 @@ html {
 
 .pageContainer {
   margin-top: 4rem;
- 
+
+.postPageContainer {
+  display: block;
+  width: 90%;
+  margin: auto;
 }
 
 ul {
@@ -110,6 +114,13 @@ p {
     margin-bottom: 1.25rem;
     color: var(--clr-grey-3);
     font-size: 1.2rem;
+  }
+  .postPageContainer {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    grid-gap: 2rem;
+    width: 90%;
+    margin: auto;
   }
 }
 
@@ -809,7 +820,6 @@ Post Component
   line-height: 1.8;
 }
 .link {
-  text-transform: uppercase;
   letter-spacing: var(--spacing);
   font-weight: 700;
   color: #b23850;
@@ -1051,7 +1061,7 @@ Post Component
   margin: 0 auto;
   margin-bottom: 4rem;
   margin-top: 5rem;
-  height: 100%;
+  min-height: 100%;
 }
 
 .postTemplate ul {
@@ -1131,6 +1141,6 @@ Post Component
   .postTemplate {
     width: 90%;
     margin: auto;
-    height: 100%;
+    min-height: 100%;
   }
 }
