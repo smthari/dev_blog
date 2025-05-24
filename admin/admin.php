@@ -13,6 +13,13 @@ $totalPosts = $stmt->rowCount();
 $_SESSION["totalPosts"] = $totalPosts; // assigned totalPosts variable to totalPosts session variable 
 $numberOfPosts = $_SESSION['totalPosts'];
 
+$qry2 = "SELECT * FROM `user`";
+$stmt2 = $dbcon->query($qry2);
+
+$totalUsers = $stmt2->rowCount();
+$_SESSION["totalUsers"] = $totalUsers; // assigned totalPosts variable to totalPosts session variable 
+$numberOfUsers = $_SESSION['totalUsers'];
+
 // condition to check if admin is signed in or not based on uid
 if (isset($_SESSION['uid'])) {
   // echo $_SESSION['last'];
@@ -94,14 +101,14 @@ if (isset($_SESSION['uid'])) {
               <!-- small box -->
               <div class="small-box bg-info">
                 <div class="inner">
-                  <h3><?php echo $totalPosts ?></h3>
+                  <h3><?php echo $numberOfPosts ?></h3>
 
-                  <p>Total Todos</p>
+                  <p>Total Posts</p>
                 </div>
                 <div class="icon">
-                <i class=" fas fa-list-ul"></i>
+                  <i class=" fas fa-list-ul"></i>
                 </div>
-                <a href="/Admin-panel/Panel/todo/alltodos.php" class="small-box-footer">All Todos <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="allposts.php" class="small-box-footer">All Posts <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
@@ -124,14 +131,14 @@ if (isset($_SESSION['uid'])) {
               <div class="small-box bg-primary ">
                 <div class="inner">
                   <h3>
-                    <?php echo $numberOfPosts ?>
+                    <?php echo $numberOfUsers ?>
                   </h3>
-                  <p>Total Posts</p>
+                  <p>Total Users</p>
                 </div>
                 <div class="icon">
-                  <i class="ion ion-person-add"></i>
+                  <i class="fas fa-users nav-icon"></i>
                 </div>
-                <a href="/dev-blog/admin/allposts.php" class="small-box-footer">All Posts <i
+                <a href="allusers.php" class="small-box-footer">All Users <i
                     class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
@@ -154,7 +161,7 @@ if (isset($_SESSION['uid'])) {
           </div>
           <!-- /.row -->
           <!-- Main row -->
-         
+
           <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
       </section>

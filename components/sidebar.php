@@ -104,10 +104,10 @@
         <li class="nav-item">
           <?php if ($_SESSION['role'] === 'admin') {
           ?>
-            <a href="/dev-blog/admin/addpost.php" class="nav-link">
+            <!-- <a href="/dev-blog/admin/addpost.php" class="nav-link">
               <i class="fas fa-plus nav-icon"></i>
               <p>Add Post</p>
-            </a>
+            </a> -->
           <?php
           } else {
           ?>
@@ -132,12 +132,12 @@
             </a>
           </li>
 
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="/dev-blog/admin/adduser.php" class="nav-link">
               <i class="fas fa-plus nav-icon"></i>
               <p>Add User</p>
             </a>
-          </li>
+          </li> -->
 
         <?php
         } ?>

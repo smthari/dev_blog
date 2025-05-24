@@ -12,6 +12,13 @@ if (isset($_SESSION['uid'])) {
 
 if (isset($_POST['submitbtn'])) {
     include('../includes/db-connection.php');
+    
+    // Get the user ID from the session
+    // Assuming you have stored the user ID in the session when the user logged in
+    $uid = $_SESSION['uid'];
+    $stmt = $dbcon->prepare("SELECT username FROM user WHERE id = ?");
+    $stmt->execute([$uid]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Get your POST variables
     $postTitleValue = $_POST['postTitle'];
@@ -20,10 +27,11 @@ if (isset($_POST['submitbtn'])) {
     $postTagsValue = $_POST['postTags'];
     $postReadTimeValue = $_POST['postReadTime'];
     $userId = $_SESSION['uid'];
+    $authorName = $user['username'];
 
     // Prepare the SQL statement with placeholders
-    $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`, `user_id`) 
-        VALUES (:title, :description, :body, :tags, :readTime, :user_id)";
+    $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`, `user_id`, `author`) 
+        VALUES (:title, :description, :body, :tags, :readTime, :user_id, :author)";
 
     // Prepare and execute with parameters
     $stmt = $dbcon->prepare($qry);
@@ -33,7 +41,8 @@ if (isset($_POST['submitbtn'])) {
         ':body' => $postBodyValue,
         ':tags' => $postTagsValue,
         ':readTime' => $postReadTimeValue,
-        ':user_id' => $userId
+        ':user_id' => $userId,
+        ':author' => $authorName
     ]);
 
     if ($stmt == true) {

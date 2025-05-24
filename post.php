@@ -37,6 +37,9 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
                     <?php endif;
                     endforeach; ?>
                     <p><?php echo $row['created_at']; ?></p>
+                    <p> <a href="author.php?author=<?= $row['author'] ?>">
+                            <?php echo $row['author'] ?>
+                        </a></p>
                     <div class="underline"></div>
                 </div>
 

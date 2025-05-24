@@ -107,32 +107,32 @@ if (isset($_SESSION['uid'])) {
                                     <tr>
                                         <th scope="col" style="width: 20% !important">Title</th>
                                         <th scope="col" style="width: 40% !important;">Description</th>
-                                        <th scope="col" style="width: 15% !important">Created On</th>
+                                        <th scope="col" style="width: 15% !important">Author</th>
                                         <th scope="col" style="width: 15% !important">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-                                    while ($todoItem = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                    while ($postItem = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                     ?>
                                         <tr>
                                             <td class="<?php echo $classTodostatus ?>"
                                                 style="vertical-align:middle !important;">
-                                                <?php echo $todoItem['title'] ?>
+                                                <?php echo $postItem['title'] ?>
                                             </td>
                                             <td class="<?php echo $classTodostatus ?>"
                                                 style="vertical-align:middle !important;">
-                                                <?php echo substr($todoItem['description'], 0, 100) . '...'  ?>
+                                                <?php echo substr($postItem['description'], 0, 100) . '...'  ?>
                                             </td>
                                             <td style="vertical-align:middle !important;">
-                                                <?php echo $todoItem['created_at'] ?>
+                                                <?php echo $postItem['author'] ?>
                                             </td>
 
                                             <td style="vertical-align:middle !important;">
-                                                <a href="updatepost.php?id=<?php echo $todoItem['id'] ?>"><i
+                                                <a href="updatepost.php?id=<?php echo $postItem['id'] ?>"><i
                                                         class="far fa-edit"></i></a>
                                                 |
-                                                <a href="deletepost.php?id=<?php echo $todoItem['id'] ?> "
+                                                <a href="deletepost.php?id=<?php echo $postItem['id'] ?> "
                                                     onclick="return confirm('Do you really want to Delete ?');"><i
                                                         class="far fa-trash-alt"></i></a>
                                             </td>

@@ -48,6 +48,7 @@ html {
 
 .pageContainer {
   margin-top: 4rem;
+ 
 }
 
 ul {
@@ -1050,6 +1051,7 @@ Post Component
   margin: 0 auto;
   margin-bottom: 4rem;
   margin-top: 5rem;
+  height: 100%;
 }
 
 .postTemplate ul {
@@ -1129,5 +1131,6 @@ Post Component
   .postTemplate {
     width: 90%;
     margin: auto;
+    height: 100%;
   }
 }

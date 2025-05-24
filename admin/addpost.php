@@ -19,10 +19,11 @@ if (isset($_POST['submitbtn'])) {
     $postBodyValue = $_POST['postBody'];
     $postTagsValue = $_POST['postTags'];
     $postReadTimeValue = $_POST['postReadTime'];
+    $authorName = $_SESSION['first'] . " " . $_SESSION['last'];
 
     // Prepare the SQL statement with placeholders
-    $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`) 
-        VALUES (:title, :description, :body, :tags, :readTime)";
+    $qry = "INSERT INTO `posts`(`title`, `description`, `body`, `tags`, `readTime`, `author`) 
+        VALUES (:title, :description, :body, :tags, :readTime, :author)";
 
     // Prepare and execute with parameters
     $stmt = $dbcon->prepare($qry);
@@ -31,7 +32,8 @@ if (isset($_POST['submitbtn'])) {
         ':description' => $postdescription,
         ':body' => $postBodyValue,
         ':tags' => $postTagsValue,
-        ':readTime' => $postReadTimeValue
+        ':readTime' => $postReadTimeValue,
+        ':author' => $authorName
     ]);
 
     if ($stmt == true) {
