@@ -53,12 +53,32 @@ $row = $result->fetch(PDO::FETCH_ASSOC);
 
                 <div><?php echo $row['body']; ?></div>
             </article>
+
+            <div id="disqus_thread"></div>
+            <script>
+                var disqus_config = function() {
+                    this.page.url = "https://dev-blog.free.nf/post.php?id=<?= $row['id']; ?>"; // Replace with dynamic post URL
+                    this.page.identifier = "post_<?= $row['id']; ?>"; // Unique identifier for each post
+                };
+
+                (function() { // DON'T EDIT BELOW THIS LINE
+                    var d = document,
+                        s = d.createElement('script');
+                    s.src = 'https://dev-blog-15.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
         </section>
+
     </main>
 
     <?php
     include("./components/footer.php");
     ?>
+
+    <script id="dsq-count-scr" src="//dev-blog-15.disqus.com/count.js" async></script>
 
 </body>
 
