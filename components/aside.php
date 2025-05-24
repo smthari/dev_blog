@@ -8,9 +8,15 @@
         </svg>
     </button>
     <div class="sidebar-container">
+        <form action="search.php" method="GET" class="mobile-search-form">
+            <input class="search-input" type="text" name="query" placeholder="Search posts..." required>
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+        </form>
         <ul class="sidebar-links">
             <!-- <li><a aria-current="page" class="page-link " href="/dev-blog/index.php">Home</a></li>
             <li><a class="page-link" href="/dev-blog/posts.php">Posts</a></li> -->
+
+
 
             <?php if (isset($_SESSION['uid'])): ?>
                 <li><a class="page-link border" href="user/addpost.php">Create Post</a></li>

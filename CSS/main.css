@@ -555,6 +555,43 @@ Hero
   margin-left: 8px;
 }
 
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 300px;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+}
+
+.search-button {
+  padding: 10px 14px;
+  background-color: #007bff;
+  color: white;
+  font-size: 19px;
+  border: none;
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
 @media screen and (max-width: 960px) {
   .adds-banner {
     display: none;
@@ -562,6 +599,18 @@ Hero
 
   .logo {
     margin: 0 !important;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .mobile-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 85%;
+    margin-bottom: 2rem;
   }
 
   .toggle-btn {

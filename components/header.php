@@ -1,3 +1,6 @@
+<!-- Load icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <?php
 
 // session_status() to check before starting
@@ -58,6 +61,12 @@ if (session_status() === PHP_SESSION_NONE) {
                 </a>
             </li>
         </ul> -->
+
+        <form action="search.php" method="GET" class="search-form">
+            <input  class="search-input" type="text" name="query" placeholder="Search posts..." required>
+            <button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+        </form>
+
         <ul class="nav-links">
             <!-- <li><a aria-current="page" class="page-link" href="./index.php">Home</a></li> -->
             <!-- <li><a class="page-link" href="posts.php">Posts</a></li> -->
