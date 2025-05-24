@@ -12,7 +12,7 @@ $author = $_GET['author'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="CSS/main.css">
-    <title>Posts | Dev Blog</title>
+    <title>Posts of: <?= htmlspecialchars($author) ?></title>
 </head>
 
 <body>
